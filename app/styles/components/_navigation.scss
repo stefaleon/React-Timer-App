@@ -6,4 +6,16 @@
     .menu-text {
         color: $nav-text-color
     }
+
+    .active {
+        font-weight: bold;
+    }
+
+    a {
+        color: $lightblue;
+    }
+
+    a:hover {
+        color: white
+    }
 }

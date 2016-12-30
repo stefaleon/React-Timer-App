@@ -37,3 +37,4 @@ Timer and Countdown.
 * karma-sourcemap-loader
 * karma-webpack
 * mocha
+* react-addons-test-utils

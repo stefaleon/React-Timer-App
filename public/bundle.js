@@ -27043,7 +27043,7 @@
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active {\n  font-weight: bold; }\n\n.top-bar a {\n  color: #8ac7f0; }\n\n.top-bar a:hover {\n  color: white; }\n", ""]);
 
 	// exports
 
