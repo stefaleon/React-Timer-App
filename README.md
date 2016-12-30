@@ -4,14 +4,14 @@
 Timer and Countdown.
 
 
-#### Dependencies
+### Dependencies
 * Express
 * React
 * ReactDOM
 * react-router
 * axios
 
-#### devDependencies
+### devDependencies
 
 * webpack
 * babel-core
@@ -19,6 +19,7 @@ Timer and Countdown.
 * babel-preset-es2015
 * babel-preset-react
 
+##### Styling
 * css-loader
 * script-loader
 * style-loader
@@ -26,3 +27,13 @@ Timer and Countdown.
 * foundation-sites
 * sass-loader
 * node-sass
+
+##### Testing
+* expect
+* karma
+* karma-chrome-launcher
+* karma-mocha
+* karma-mocha-reporter
+* karma-sourcemap-loader
+* karma-webpack
+* mocha
