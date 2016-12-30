@@ -106,15 +106,15 @@
 
 	var Main = __webpack_require__(240);
 	var Timer = __webpack_require__(242);
-	var Countdown = __webpack_require__(243);
-	var About = __webpack_require__(244);
+	var Countdown = __webpack_require__(244);
+	var About = __webpack_require__(245);
 
 	// Load foundation
-	__webpack_require__(245);
+	__webpack_require__(246);
 	$(document).foundation();
 
 	// App CSS
-	__webpack_require__(249);
+	__webpack_require__(250);
 
 	ReactDOM.render(React.createElement(
 	    Router,
@@ -26562,16 +26562,13 @@
 	'use strict';
 
 	var React = __webpack_require__(8);
-
-	var _require = __webpack_require__(185),
-	    Link = _require.Link,
-	    IndexLink = _require.IndexLink;
+	var Clock = __webpack_require__(243);
 
 	var Timer = function Timer() {
 	    return React.createElement(
 	        'div',
-	        { className: 'columns medium-6 large-4 small-centered' },
-	        'This is Timer'
+	        null,
+	        React.createElement(Clock, { totalSeconds: 62 })
 	    );
 	};
 
@@ -26585,22 +26582,65 @@
 
 	var React = __webpack_require__(8);
 
-	var _require = __webpack_require__(185),
-	    Link = _require.Link,
-	    IndexLink = _require.IndexLink;
+	var Clock = React.createClass({
+	    displayName: 'Clock',
+
+	    getDefaultProps: function getDefaultProps() {
+	        totalSeconds: 0;
+	    },
+	    propTypes: {
+	        totalSeconds: React.PropTypes.number
+	    },
+	    formatSeconds: function formatSeconds(totalSeconds) {
+	        var seconds = totalSeconds % 60;
+	        var minutes = Math.floor(totalSeconds / 60);
+	        if (seconds < 10) {
+	            seconds = '0' + seconds;
+	        }
+	        if (minutes < 10) {
+	            minutes = '0' + minutes;
+	        }
+
+	        return minutes + ':' + seconds;
+	    },
+	    render: function render() {
+	        var totalSeconds = this.props.totalSeconds;
+
+	        return React.createElement(
+	            'div',
+	            { className: 'clock' },
+	            React.createElement(
+	                'span',
+	                { className: 'clock-text' },
+	                this.formatSeconds(totalSeconds)
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Clock;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(8);
+	var Clock = __webpack_require__(243);
 
 	var Countdown = function Countdown() {
 	    return React.createElement(
 	        'div',
-	        { className: 'columns medium-6 large-4 small-centered' },
-	        'This is Countdown'
+	        null,
+	        React.createElement(Clock, { totalSeconds: 562 })
 	    );
 	};
 
 	module.exports = Countdown;
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26661,16 +26701,16 @@
 	module.exports = About;
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(246);
+	var content = __webpack_require__(247);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(248)(content, {});
+	var update = __webpack_require__(249)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26687,10 +26727,10 @@
 	}
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(247)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 
 
@@ -26701,7 +26741,7 @@
 
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports) {
 
 	/*
@@ -26757,7 +26797,7 @@
 
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27009,16 +27049,16 @@
 
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(250);
+	var content = __webpack_require__(251);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(248)(content, {});
+	var update = __webpack_require__(249)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27035,15 +27075,15 @@
 	}
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(247)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active {\n  font-weight: bold; }\n\n.top-bar a {\n  color: #8ac7f0; }\n\n.top-bar a:hover {\n  color: white; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active {\n  font-weight: bold; }\n\n.top-bar a {\n  color: #8ac7f0; }\n\n.top-bar a:hover {\n  color: white; }\n\n.clock {\n  align-items: center;\n  background-color: #8ac7f0;\n  border: 2px solid #000066;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.2rem;\n  font-weight: 333; }\n", ""]);
 
 	// exports
 
