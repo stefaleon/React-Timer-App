@@ -4,30 +4,38 @@ const expect = require('expect');
 const $ = require('jQuery');
 const TestUtils = require('react-addons-test-utils');
 
-const CountdownForm = require('CountdownForm');
+const Countdown = require('Countdown');
 
-describe('CountdownForm', () => {
+describe('Countdown', () => {
     it('should exist', () => {
-        expect(CountdownForm).toExist();
+        expect(Countdown).toExist();
     });
 
-    it('should call onSetCountdown if valid seconds are entered', () => {
-        var spy = expect.createSpy();
-        var countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy} />);
-        var $el = $(ReactDOM.findDOMNode(countdownForm));
+    describe('handleSetCountdown', () => {
+        it('should set state to started and countdown', (done) => {
+            var countdown = TestUtils.renderIntoDocument(<Countdown />);
+            countdown.handleSetCountdown(10);
 
-        countdownForm.refs.seconds.value = '138';
-        TestUtils.Simulate.submit($el.find('form')[0]);
-        expect(spy).toHaveBeenCalledWith(138);
+            expect(countdown.state.count).toBe(10);
+            expect(countdown.state.countdownStatus).toBe('started');
+
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(9);
+                done();
+            }, 1001);
+        });
+
+        it('should stop countdown to zero', (done) => {
+            var countdown = TestUtils.renderIntoDocument(<Countdown />);
+            countdown.handleSetCountdown(1);
+
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(0);
+                done();
+            }, 3001);
+        });
     });
 
-    it('should not call onSetCountdown if invalid seconds are entered', () => {
-        var spy = expect.createSpy();
-        var countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy} />);
-        var $el = $(ReactDOM.findDOMNode(countdownForm));
 
-        countdownForm.refs.seconds.value = '123abc';
-        TestUtils.Simulate.submit($el.find('form')[0]);
-        expect(spy).toNotHaveBeenCalled();
-    });
+
 });
