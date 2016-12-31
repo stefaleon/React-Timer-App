@@ -26655,6 +26655,23 @@
 	            }
 	        }
 	    },
+	    componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
+	        console.log('componentWillUpdate');
+	    },
+	    componentWillMount: function componentWillMount() {
+	        console.log('componentWillMount');
+	    },
+	    componentDidMount: function componentDidMount() {
+	        console.log('componentDidMount');
+	        console.log('refs:', this.refs);
+	        console.log('props:', this.props);
+	        //console.log('state:',this.state);
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        clearInterval(this.timer);
+	        this.timer = undefined;
+	        console.log('component did unmount, interval cleared');
+	    },
 	    startTimer: function startTimer() {
 	        var _this = this;
 
@@ -26663,6 +26680,10 @@
 	            _this.setState({
 	                count: newCount >= 0 ? newCount : 0
 	            });
+
+	            if (newCount === 0) {
+	                _this.setState({ countdownStatus: 'stopped' });
+	            }
 	        }, 1000);
 	    },
 	    handleSetCountdown: function handleSetCountdown(seconds) {
@@ -26767,6 +26788,9 @@
 	        return function () {
 	            _this.props.onStatusChange(newStatus);
 	        };
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	        console.log('componentWillReceiveProps', newProps);
 	    },
 	    render: function render() {
 	        var _this2 = this;
