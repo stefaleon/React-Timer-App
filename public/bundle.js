@@ -26471,11 +26471,6 @@
 	            'div',
 	            { className: 'row' },
 	            React.createElement(
-	                'p',
-	                null,
-	                'This is main'
-	            ),
-	            React.createElement(
 	                'div',
 	                { className: 'column medium-6 large-4 small-centered' },
 	                props.children
@@ -26656,21 +26651,21 @@
 	        }
 	    },
 	    componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
-	        console.log('componentWillUpdate');
+	        // console.log('componentWillUpdate');
 	    },
 	    componentWillMount: function componentWillMount() {
-	        console.log('componentWillMount');
+	        // console.log('componentWillMount');
 	    },
 	    componentDidMount: function componentDidMount() {
-	        console.log('componentDidMount');
-	        console.log('refs:', this.refs);
-	        console.log('props:', this.props);
+	        // console.log('componentDidMount');
+	        // console.log('refs:',this.refs);
+	        // console.log('props:',this.props);
 	        //console.log('state:',this.state);
 	    },
 	    componentWillUnmount: function componentWillUnmount() {
 	        clearInterval(this.timer);
 	        this.timer = undefined;
-	        console.log('component did unmount, interval cleared');
+	        // console.log('component did unmount, interval cleared');
 	    },
 	    startTimer: function startTimer() {
 	        var _this = this;
@@ -26720,7 +26715,7 @@
 	            null,
 	            React.createElement(
 	                'h1',
-	                null,
+	                { className: 'page-title' },
 	                'Countdown'
 	            ),
 	            React.createElement(Clock, { totalSeconds: count }),
@@ -26790,7 +26785,7 @@
 	        };
 	    },
 	    componentWillReceiveProps: function componentWillReceiveProps(newProps) {
-	        console.log('componentWillReceiveProps', newProps);
+	        // console.log('componentWillReceiveProps', newProps);
 	    },
 	    render: function render() {
 	        var _this2 = this;
@@ -27274,7 +27269,7 @@
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active {\n  font-weight: bold; }\n\n.top-bar a {\n  color: #8ac7f0; }\n\n.top-bar a:hover {\n  color: white; }\n\n.clock {\n  align-items: center;\n  background-color: #8ac7f0;\n  border: 2px solid #000066;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.2rem;\n  font-weight: 333; }\n\n.controls {\n  display: flex;\n  justify-content: center; }\n  .controls .button {\n    padding: .75rem 2rem; }\n  .controls .button:first-child {\n    margin-right: 1rem; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .active {\n  font-weight: bold; }\n\n.top-bar a {\n  color: #8ac7f0; }\n\n.top-bar a:hover {\n  color: white; }\n\n.clock {\n  align-items: center;\n  background-color: #8ac7f0;\n  border: 2px solid #000066;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.2rem;\n  font-weight: 333; }\n\n.controls {\n  display: flex;\n  justify-content: center; }\n  .controls .button {\n    padding: .75rem 2rem; }\n  .controls .button:first-child {\n    margin-right: 1rem; }\n\n.page-title {\n  margin: 2rem 0;\n  text-align: center; }\n", ""]);
 
 	// exports
 
